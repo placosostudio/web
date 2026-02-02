@@ -2,6 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+<<<<<<< HEAD
+=======
+  <title>Signup</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+>>>>>>> 1e3bb8e228361334188a41076f7fc4b73eb36c83
 
   <!-- Polyfills -->
   <script src="https://wzrd.in/standalone/formdata-polyfill"></script>
@@ -11,6 +16,7 @@
 
 <body>
 
+<<<<<<< HEAD
 <form id="form" name="submit-to-google-sheet">
   <div id="error" style="color:red;"></div>
 
@@ -28,10 +34,30 @@
 
   <div class="group">
     <button type="submit">Submit</button>
+=======
+<form name="submit-to-google-sheet" id="form">
+  <div id="error" style="color:red;"></div>
+
+  <div class="group">
+    <input id="name" name="fullName" type="text" placeholder="Full Name" required>
+  </div>
+
+  <div class="group">
+    <input id="email" name="email" type="email" placeholder="Email Address" required>
+  </div>
+
+  <div class="group">
+    <input id="phone" name="phone" type="text" placeholder="Phone Number" required>
+  </div>
+
+  <div class="group">
+    <button type="submit">Download Agenda</button>
+>>>>>>> 1e3bb8e228361334188a41076f7fc4b73eb36c83
   </div>
 </form>
 
 <script>
+<<<<<<< HEAD
 const scriptURL = 'https://script.google.com/macros/s/AKfycbwOGWEajpfmI9uruNEDqZQktNkSh_mrbKmPyLXLx5xmUucuFXr0hFLtOtMbRi04EVNN/exec'
 const form = document.getElementById('form')
 const error = document.getElementById('error')
@@ -39,11 +65,21 @@ const error = document.getElementById('error')
 form.addEventListener('submit', e => {
   e.preventDefault()
   error.textContent = ''
+=======
+const scriptURL = 'https://script.google.com/macros/s/AKfycbyc9qhRfihzMfhQw59UdRcIsPMTxgMeeG8dFN0tBhO_xPk6Xysb_FLrV9mB7F13hO1y/exec'
+const form = document.forms['submit-to-google-sheet']
+const errorElement = document.getElementById('error')
+
+form.addEventListener('submit', e => {
+  e.preventDefault()
+  errorElement.textContent = ''
+>>>>>>> 1e3bb8e228361334188a41076f7fc4b73eb36c83
 
   fetch(scriptURL, {
     method: 'POST',
     body: new FormData(form)
   })
+<<<<<<< HEAD
   .then(res => res.json())
   .then(data => {
     if (data.success) {
@@ -55,6 +91,13 @@ form.addEventListener('submit', e => {
   })
   .catch(err => {
     error.textContent = 'Submission failed.'
+=======
+  .then(() => {
+    window.location.href = 'thankyou.html'
+  })
+  .catch(err => {
+    errorElement.textContent = 'Submission failed. Please try again.'
+>>>>>>> 1e3bb8e228361334188a41076f7fc4b73eb36c83
     console.error(err)
   })
 })
