@@ -36,7 +36,7 @@ form.addEventListener('submit', e => {
   e.preventDefault()
  
 
-  fetch(scriptURL, {
+  fetch('https://script.google.com/macros/s/AKfycbyc9qhRfihzMfhQw59UdRcIsPMTxgMeeG8dFN0tBhO_xPk6Xysb_FLrV9mB7F13hO1y/exec', {
     method: 'POST',
     body: new FormData(form)
   })
